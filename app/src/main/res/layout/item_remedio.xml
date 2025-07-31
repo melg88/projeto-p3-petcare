@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/corner_radius"
+    app:cardElevation="@dimen/card_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_medium">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.PetCare.TitleMedium"
+                android:textColor="@color/text_primary"
+                tools:text="Dipirona" />
+
+            <TextView
+                android:id="@+id/tvGato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:textAppearance="@style/TextAppearance.PetCare.BodyMedium"
+                android:textColor="@color/text_secondary"
+                tools:text="Gato: Miau" />
+
+            <TextView
+                android:id="@+id/tvDosagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:textAppearance="@style/TextAppearance.PetCare.BodyMedium"
+                android:textColor="@color/text_secondary"
+                tools:text="Dosagem: 1ml" />
+
+            <TextView
+                android:id="@+id/tvFrequencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:textAppearance="@style/TextAppearance.PetCare.BodyMedium"
+                android:textColor="@color/text_secondary"
+                tools:text="Frequência: 2x ao dia" />
+
+            <TextView
+                android:id="@+id/tvPeriodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:textAppearance="@style/TextAppearance.PetCare.BodySmall"
+                android:textColor="@color/text_secondary"
+                tools:text="Período: 15/01/2024 - 20/01/2024" />
+
+            <TextView
+                android:id="@+id/tvObservacoes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xsmall"
+                android:textAppearance="@style/TextAppearance.PetCare.BodySmall"
+                android:textColor="@color/text_secondary"
+                tools:text="Observações: Administrar após refeição" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/edit_remedio"
+                android:src="@drawable/ic_edit"
+                android:tint="@color/primary" />
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/delete_remedio"
+                android:src="@drawable/ic_delete"
+                android:tint="@color/error" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 

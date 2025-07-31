@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilos de texto -->
+    <style name="TextAppearance.PetCare.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">@dimen/text_headline</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    
+    <style name="TextAppearance.PetCare.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    
+    <style name="TextAppearance.PetCare.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    
+    <style name="TextAppearance.PetCare.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    
+    <!-- Estilos de botões -->
+    <style name="Widget.PetCare.Button" parent="Widget.Material3.Button">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/spacing_medium</item>
+    </style>
+    
+    <style name="Widget.PetCare.Button.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/spacing_medium</item>
+    </style>
+    
+    <!-- Estilos de cards -->
+    <style name="Widget.PetCare.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="android:layout_margin">@dimen/spacing_small</item>
+    </style>
+</resources> 

@@ -1,0 +1,133 @@
+<resources>
+    <string name="app_name">PetCare</string>
+    
+    <!-- Navegação -->
+    <string name="nav_gatos">Gatos</string>
+    <string name="nav_tutores">Tutores</string>
+    <string name="nav_vacinas">Vacinas</string>
+    <string name="nav_remedios">Remédios</string>
+    
+    <!-- Gatos -->
+    <string name="add_gato">Adicionar Gato</string>
+    <string name="edit_gato">Editar Gato</string>
+    <string name="delete_gato">Excluir Gato</string>
+    <string name="nome_gato">Nome do Gato</string>
+    <string name="idade_gato">Idade</string>
+    <string name="raca_gato">Raça</string>
+    <string name="peso_gato">Peso (kg)</string>
+    <string name="tutor_gato">Tutor</string>
+    <string name="observacoes_gato">Observações</string>
+    <string name="salvar_gato">Salvar Gato</string>
+    <string name="gato_salvo">Gato salvo com sucesso!</string>
+    <string name="gato_excluido">Gato excluído com sucesso!</string>
+    
+    <!-- Tutores -->
+    <string name="title_tutores">Tutores</string>
+    <string name="add_tutor">Adicionar Tutor</string>
+    <string name="edit_tutor">Editar Tutor</string>
+    <string name="delete_tutor">Excluir Tutor</string>
+    <string name="nome_tutor">Nome do Tutor</string>
+    <string name="telefone_tutor">Telefone</string>
+    <string name="email_tutor">Email</string>
+    <string name="endereco_tutor">Endereço</string>
+    <string name="salvar_tutor">Salvar Tutor</string>
+    <string name="tutor_salvo">Tutor salvo com sucesso!</string>
+    <string name="tutor_excluido">Tutor excluído com sucesso!</string>
+    <string name="hint_nome_tutor">Nome do tutor</string>
+    <string name="hint_telefone">Telefone</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_endereco">Endereço</string>
+    <string name="error_nome_required">Nome é obrigatório</string>
+    <string name="error_telefone_required">Telefone é obrigatório</string>
+    <string name="error_email_required">Email é obrigatório</string>
+    <string name="error_endereco_required">Endereço é obrigatório</string>
+    <string name="success_tutor_added">Tutor adicionado com sucesso</string>
+    <string name="success_tutor_updated">Tutor atualizado com sucesso</string>
+    <string name="success_tutor_deleted">Tutor excluído com sucesso</string>
+    <string name="error_tutor_add">Erro ao adicionar tutor</string>
+    <string name="error_tutor_update">Erro ao atualizar tutor</string>
+    <string name="error_tutor_delete">Erro ao excluir tutor</string>
+    <string name="confirm_delete_tutor">Tem certeza que deseja excluir o tutor %s?</string>
+    <string name="empty_tutores">Nenhum tutor cadastrado</string>
+    
+    <!-- Vacinas -->
+    <string name="title_vacinas">Vacinas</string>
+    <string name="add_vacina">Adicionar Vacina</string>
+    <string name="edit_vacina">Editar Vacina</string>
+    <string name="delete_vacina">Excluir Vacina</string>
+    <string name="nome_vacina">Nome da Vacina</string>
+    <string name="data_vacina">Data da Vacina</string>
+    <string name="proxima_vacina">Próxima Vacina</string>
+    <string name="gato_vacina">Gato</string>
+    <string name="observacoes_vacina">Observações</string>
+    <string name="salvar_vacina">Salvar Vacina</string>
+    <string name="vacina_salva">Vacina salva com sucesso!</string>
+    <string name="vacina_excluida">Vacina excluída com sucesso!</string>
+    <string name="hint_nome_vacina">Nome da vacina</string>
+    <string name="hint_data_vacina">Data da vacina</string>
+    <string name="hint_proxima_vacina">Próxima vacina</string>
+    <string name="hint_observacoes_vacina">Observações</string>
+    <string name="error_data_required">Data é obrigatória</string>
+    <string name="error_gato_required">Selecione um gato</string>
+    <string name="success_vacina_added">Vacina adicionada com sucesso</string>
+    <string name="success_vacina_updated">Vacina atualizada com sucesso</string>
+    <string name="success_vacina_deleted">Vacina excluída com sucesso</string>
+    <string name="error_vacina_add">Erro ao adicionar vacina</string>
+    <string name="error_vacina_update">Erro ao atualizar vacina</string>
+    <string name="error_vacina_delete">Erro ao excluir vacina</string>
+    <string name="confirm_delete_vacina">Tem certeza que deseja excluir a vacina %s?</string>
+    <string name="empty_vacinas">Nenhuma vacina cadastrada</string>
+    
+    <!-- Remédios -->
+    <string name="title_remedios">Remédios</string>
+    <string name="add_remedio">Adicionar Remédio</string>
+    <string name="edit_remedio">Editar Remédio</string>
+    <string name="delete_remedio">Excluir Remédio</string>
+    <string name="nome_remedio">Nome do Remédio</string>
+    <string name="dosagem_remedio">Dosagem</string>
+    <string name="frequencia_remedio">Frequência</string>
+    <string name="data_inicio_remedio">Data de Início</string>
+    <string name="data_fim_remedio">Data de Fim</string>
+    <string name="gato_remedio">Gato</string>
+    <string name="observacoes_remedio">Observações</string>
+    <string name="salvar_remedio">Salvar Remédio</string>
+    <string name="remedio_salvo">Remédio salvo com sucesso!</string>
+    <string name="remedio_excluido">Remédio excluído com sucesso!</string>
+    <string name="hint_nome_remedio">Nome do remédio</string>
+    <string name="hint_dosagem">Dosagem</string>
+    <string name="hint_frequencia">Frequência</string>
+    <string name="hint_data_inicio">Data de início</string>
+    <string name="hint_data_fim">Data de fim</string>
+    <string name="hint_observacoes_remedio">Observações</string>
+    <string name="error_dosagem_required">Dosagem é obrigatória</string>
+    <string name="error_frequencia_required">Frequência é obrigatória</string>
+    <string name="success_remedio_added">Remédio adicionado com sucesso</string>
+    <string name="success_remedio_updated">Remédio atualizado com sucesso</string>
+    <string name="success_remedio_deleted">Remédio excluído com sucesso</string>
+    <string name="error_remedio_add">Erro ao adicionar remédio</string>
+    <string name="error_remedio_update">Erro ao atualizar remédio</string>
+    <string name="error_remedio_delete">Erro ao excluir remédio</string>
+    <string name="confirm_delete_remedio">Tem certeza que deseja excluir o remédio %s?</string>
+    <string name="empty_remedios">Nenhum remédio cadastrado</string>
+    
+    <!-- Geral -->
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Excluir</string>
+    <string name="edit">Editar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="error">Erro</string>
+    <string name="success">Sucesso</string>
+    <string name="loading">Carregando...</string>
+    <string name="no_data">Nenhum dado encontrado</string>
+    <string name="select_date">Selecionar Data</string>
+    <string name="select_cat">Selecionar Gato</string>
+    <string name="select_tutor">Selecionar Tutor</string>
+    
+    <!-- Mensagens -->
+    <string name="msg_confirmar_exclusao">Tem certeza que deseja excluir este item?</string>
+    <string name="msg_campo_obrigatorio">Este campo é obrigatório</string>
+    <string name="msg_erro_carregar">Erro ao carregar dados</string>
+    <string name="msg_erro_salvar">Erro ao salvar dados</string>
+    <string name="msg_erro_excluir">Erro ao excluir dados</string>
+</resources> 

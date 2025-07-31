@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_gatos"
+            android:icon="@drawable/ic_cat"
+            android:title="@string/nav_gatos" />
+
+        <item
+            android:id="@+id/navigation_tutores"
+            android:icon="@drawable/ic_person"
+            android:title="@string/nav_tutores" />
+
+        <item
+            android:id="@+id/navigation_vacinas"
+            android:icon="@drawable/ic_vaccine"
+            android:title="@string/nav_vacinas" />
+
+        <item
+            android:id="@+id/navigation_remedios"
+            android:icon="@drawable/ic_medicine"
+            android:title="@string/nav_remedios" />
+    </group>
+</menu> 

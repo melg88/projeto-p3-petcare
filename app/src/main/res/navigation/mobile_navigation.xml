@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_gatos">
+
+    <fragment
+        android:id="@+id/navigation_gatos"
+        android:name="com.example.petcare.ui.gatos.GatosFragment"
+        android:label="@string/nav_gatos"
+        tools:layout="@layout/fragment_gatos" />
+
+    <fragment
+        android:id="@+id/navigation_tutores"
+        android:name="com.example.petcare.ui.tutores.TutoresFragment"
+        android:label="@string/nav_tutores"
+        tools:layout="@layout/fragment_tutores" />
+
+    <fragment
+        android:id="@+id/navigation_vacinas"
+        android:name="com.example.petcare.ui.vacinas.VacinasFragment"
+        android:label="@string/nav_vacinas"
+        tools:layout="@layout/fragment_vacinas" />
+
+    <fragment
+        android:id="@+id/navigation_remedios"
+        android:name="com.example.petcare.ui.remedios.RemediosFragment"
+        android:label="@string/nav_remedios"
+        tools:layout="@layout/fragment_remedios" />
+
+</navigation> 
