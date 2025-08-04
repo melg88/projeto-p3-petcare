@@ -83,7 +83,7 @@
                 android:layout_height="32dp"
                 android:src="@drawable/ic_edit"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/editar" />
+                android:contentDescription="@string/edit" />
 
             <ImageButton
                 android:id="@+id/btnDeleteGato"
@@ -92,7 +92,7 @@
                 android:layout_marginTop="8dp"
                 android:src="@drawable/ic_delete"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/excluir" />
+                android:contentDescription="@string/delete" />
 
         </LinearLayout>
 

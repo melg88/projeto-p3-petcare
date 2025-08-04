@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcare.R
@@ -17,7 +18,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class TutoresFragment : Fragment() {
     private var _binding: FragmentTutoresBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: TutorViewModel by viewModels()
+    private val viewModel: TutorViewModel by activityViewModels()
     private lateinit var adapter: TutoresAdapter
 
     override fun onCreateView(
@@ -60,21 +61,21 @@ class TutoresFragment : Fragment() {
             updateEmptyState(tutores.isEmpty())
         }
 
-        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+        viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
-        viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
+        viewModel.error.observe(viewLifecycleOwner) { error ->
             error?.let {
                 Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-                viewModel.clearErrorMessage()
+                viewModel.clearMessages()
             }
         }
 
-        viewModel.successMessage.observe(viewLifecycleOwner) { success ->
+        viewModel.success.observe(viewLifecycleOwner) { success ->
             success?.let {
                 Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-                viewModel.clearSuccessMessage()
+                viewModel.clearMessages()
             }
         }
     }
@@ -87,7 +88,7 @@ class TutoresFragment : Fragment() {
 
     private fun showTutorDialog(tutor: Tutor? = null) {
         TutorDialogFragment.newInstance(tutor)
-            .show(childFragmentManager, "TutorDialog")
+            .show(parentFragmentManager, "TutorDialog")
     }
 
     private fun showDeleteConfirmation(tutor: Tutor) {
@@ -95,7 +96,7 @@ class TutoresFragment : Fragment() {
             .setTitle(getString(R.string.delete_tutor))
             .setMessage(getString(R.string.confirm_delete_tutor, tutor.nome))
             .setPositiveButton(getString(R.string.delete)) { _, _ ->
-                viewModel.deleteTutor(tutor)
+                viewModel.deleteTutor(tutor.id)
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()

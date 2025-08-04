@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.petcare.databinding.DialogGatoBinding
 import com.example.petcare.model.Gato
@@ -20,9 +21,9 @@ import java.util.*
 class GatoDialogFragment : DialogFragment() {
     private var _binding: DialogGatoBinding? = null
     private val binding get() = _binding!!
-    
-    private val gatoViewModel: GatoViewModel by viewModels()
-    private val tutorViewModel: TutorViewModel by viewModels()
+
+    private val gatoViewModel: GatoViewModel by activityViewModels()
+    private val tutorViewModel: TutorViewModel by activityViewModels()
     
     private var gato: Gato? = null
     private var tutores: List<Tutor> = emptyList()
@@ -165,6 +166,7 @@ class GatoDialogFragment : DialogFragment() {
             gatoViewModel.addGato(novoGato)
         }
 
+
         dismiss()
     }
 
@@ -172,4 +174,11 @@ class GatoDialogFragment : DialogFragment() {
         super.onDestroyView()
         _binding = null
     }
-} 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.9).toInt(), // 90% da largura da tela
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+    }
+}

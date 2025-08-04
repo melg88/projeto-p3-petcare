@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.petcare.R
 import com.example.petcare.databinding.DialogRemedioBinding
@@ -17,14 +18,15 @@ import com.example.petcare.viewmodel.GatoViewModel
 import com.example.petcare.viewmodel.RemedioViewModel
 import java.text.SimpleDateFormat
 import java.util.*
+import com.google.firebase.Timestamp
 
 class RemedioDialogFragment : DialogFragment() {
 
     private var _binding: DialogRemedioBinding? = null
     private val binding get() = _binding!!
     
-    private val remedioViewModel: RemedioViewModel by viewModels()
-    private val gatoViewModel: GatoViewModel by viewModels()
+    private val remedioViewModel: RemedioViewModel by activityViewModels()
+    private val gatoViewModel: GatoViewModel by activityViewModels()
     
     private var remedio: Remedio? = null
     private var isEditMode = false
@@ -71,10 +73,10 @@ class RemedioDialogFragment : DialogFragment() {
             }
         }
 
-        remedioViewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+        remedioViewModel.error.observe(viewLifecycleOwner) { message ->
             message?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
-                remedioViewModel.clearErrorMessage()
+                remedioViewModel.clearMessages()
             }
         }
 
@@ -155,8 +157,10 @@ class RemedioDialogFragment : DialogFragment() {
             etNome.setText(remedio.nome)
             etDosagem.setText(remedio.dosagem)
             etFrequencia.setText(remedio.frequencia)
-            etDataInicio.setText(formatDate(remedio.dataInicio))
-            etDataFim.setText(formatDate(remedio.dataFim))
+            etDataInicio.setText(formatDate(remedio.dataInicio.seconds * 1000))
+            etDataFim.setText(
+                remedio.dataFim?.seconds?.let { formatDate(it * 1000) } ?: ""
+            )
             etObservacoes.setText(remedio.observacoes)
         }
     }
@@ -208,12 +212,12 @@ class RemedioDialogFragment : DialogFragment() {
             nome = nome,
             dosagem = dosagem,
             frequencia = frequencia,
-            dataInicio = dataInicio,
-            dataFim = dataFim,
+            dataInicio = Timestamp(dataInicio / 1000, 0),
+            dataFim = if (dataFim > 0) Timestamp(dataFim / 1000, 0) else null,
             gatoId = selectedGato!!.id,
             gatoNome = selectedGato!!.nome,
             observacoes = observacoes,
-            dataCadastro = remedio?.dataCadastro ?: System.currentTimeMillis()
+            dataCadastro = remedio?.dataCadastro ?: Timestamp.now()
         )
 
         if (isEditMode) {
@@ -221,6 +225,9 @@ class RemedioDialogFragment : DialogFragment() {
         } else {
             remedioViewModel.addRemedio(remedioToSave)
         }
+
+        dismiss()
+
     }
 
     private fun formatDate(timestamp: Long): String {
@@ -258,5 +265,12 @@ class RemedioDialogFragment : DialogFragment() {
                 }
             }
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.9).toInt(), // 90% da largura da tela
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 } 

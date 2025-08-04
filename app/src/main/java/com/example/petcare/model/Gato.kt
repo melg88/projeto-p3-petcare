@@ -1,8 +1,12 @@
 package com.example.petcare.model
 
+import android.os.Parcelable
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
+import kotlinx.parcelize.Parcelize
 
+
+@Parcelize
 data class Gato(
     @DocumentId
     val id: String = "",
@@ -15,4 +19,4 @@ data class Gato(
     val observacoes: String = "",
     val dataCadastro: Timestamp = Timestamp.now(),
     val fotoUrl: String = ""
-) 
+) : Parcelable

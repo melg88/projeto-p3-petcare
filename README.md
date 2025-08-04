@@ -76,7 +76,7 @@ service cloud.firestore {
 
 O aplicativo utiliza as seguintes coleções no Firestore:
 
-#### Coleção: `gatos`
+#### Model: `gatos`
 ```json
 {
   "id": "string",
@@ -92,7 +92,7 @@ O aplicativo utiliza as seguintes coleções no Firestore:
 }
 ```
 
-#### Coleção: `tutores`
+#### Model: `tutores`
 ```json
 {
   "id": "string",
@@ -104,7 +104,7 @@ O aplicativo utiliza as seguintes coleções no Firestore:
 }
 ```
 
-#### Coleção: `vacinas`
+#### Model: `vacinas`
 ```json
 {
   "id": "string",
@@ -118,7 +118,7 @@ O aplicativo utiliza as seguintes coleções no Firestore:
 }
 ```
 
-#### Coleção: `remedios`
+#### Model: `remedios`
 ```json
 {
   "id": "string",
@@ -134,7 +134,7 @@ O aplicativo utiliza as seguintes coleções no Firestore:
 }
 ```
 
-## Como Executar
+## Como Executar Localmente
 
 1. Clone o repositório:
 ```bash
@@ -177,8 +177,8 @@ app/src/main/java/com/example/petcare/
 ## Funcionalidades por Tela
 
 ### Tela de Gatos
-- Lista todos os gatos cadastrados
-- Botão FAB para adicionar novo gato
+- Lista todos os pets cadastrados
+- Botão FAB para adicionar novo pet
 - Botões de editar e excluir em cada item
 - Informações exibidas: nome, raça, tutor, idade e peso
 
@@ -219,14 +219,6 @@ app/src/main/java/com/example/petcare/
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
-
-## Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## Suporte
-
-Para suporte, envie um email para [seu-email@exemplo.com] ou abra uma issue no repositório.
 
 ---
 

@@ -35,7 +35,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/ic_medicine"
-            android:tint="@color/gray_500" />
+            app:tint="@color/gray_500" />
 
         <TextView
             android:layout_width="wrap_content"

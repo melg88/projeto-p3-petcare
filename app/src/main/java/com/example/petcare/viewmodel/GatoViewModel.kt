@@ -56,7 +56,7 @@ class GatoViewModel : ViewModel() {
                     loadGatos()
                 },
                 onFailure = { exception ->
-                    _error.value = exception.message ?: "Erro ao adicionar gato"
+                    _error.value = exception.message ?: "Erro ao adicionar Gato"
                 }
             )
         }

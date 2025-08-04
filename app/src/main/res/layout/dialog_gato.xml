@@ -10,7 +10,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adicionar Gato"
+        android:text="Adicionar Pet"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -134,7 +134,7 @@
             android:id="@+id/btnCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancelar"
+            android:text="@string/cancel"
             android:layout_marginEnd="8dp"
             style="@style/Widget.Material3.Button.TextButton" />
 

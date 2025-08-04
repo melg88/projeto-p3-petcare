@@ -5,13 +5,32 @@
         <item name="android:textSize">@dimen/text_headline</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
+
+    <style name="TextAppearance.PetCare.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
     
     <style name="TextAppearance.PetCare.Title" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">@dimen/text_title</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    
+    <style name="TextAppearance.PetCare.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
     <style name="TextAppearance.PetCare.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.PetCare.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.PetCare.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
         <item name="android:textSize">@dimen/text_large</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
@@ -26,6 +45,11 @@
         <item name="android:textSize">@dimen/text_large</item>
         <item name="android:padding">@dimen/spacing_medium</item>
     </style>
+
+    <style name="Widget.PetCare.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/spacing_medium</item>
+    </style>
     
     <style name="Widget.PetCare.Button.TextButton" parent="Widget.Material3.Button.TextButton">
         <item name="android:textSize">@dimen/text_large</item>
@@ -37,5 +61,10 @@
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
         <item name="cardElevation">@dimen/card_elevation</item>
         <item name="android:layout_margin">@dimen/spacing_small</item>
+    </style>
+
+    <style name="TextAppearance.PetCare.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/text_headline_small</item> <!-- defina essa dimensão em dimens.xml -->
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 </resources> 

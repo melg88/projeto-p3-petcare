@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.petcare.R
 import com.example.petcare.databinding.DialogVacinaBinding
@@ -15,6 +16,7 @@ import com.example.petcare.model.Gato
 import com.example.petcare.model.Vacina
 import com.example.petcare.viewmodel.GatoViewModel
 import com.example.petcare.viewmodel.VacinaViewModel
+import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,8 +25,8 @@ class VacinaDialogFragment : DialogFragment() {
     private var _binding: DialogVacinaBinding? = null
     private val binding get() = _binding!!
     
-    private val vacinaViewModel: VacinaViewModel by viewModels()
-    private val gatoViewModel: GatoViewModel by viewModels()
+    private val vacinaViewModel: VacinaViewModel by activityViewModels()
+    private val gatoViewModel: GatoViewModel by activityViewModels()
     
     private var vacina: Vacina? = null
     private var isEditMode = false
@@ -63,18 +65,18 @@ class VacinaDialogFragment : DialogFragment() {
     }
 
     private fun setupObservers() {
-        vacinaViewModel.successMessage.observe(viewLifecycleOwner) { message ->
+        vacinaViewModel.success.observe(viewLifecycleOwner) { message ->
             message?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-                vacinaViewModel.clearSuccessMessage()
+                vacinaViewModel.clearMessages()
                 dismiss()
             }
         }
 
-        vacinaViewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+        vacinaViewModel.error.observe(viewLifecycleOwner) { message ->
             message?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
-                vacinaViewModel.clearErrorMessage()
+                vacinaViewModel.clearMessages()
             }
         }
 
@@ -190,12 +192,12 @@ class VacinaDialogFragment : DialogFragment() {
         val vacinaToSave = Vacina(
             id = vacina?.id ?: "",
             nome = nome,
-            dataVacina = dataVacina,
-            proximaVacina = proximaVacina,
+            dataVacina = Timestamp(dataVacina / 1000, 0),
+            proximaVacina = Timestamp(proximaVacina / 1000, 0),
             gatoId = selectedGato!!.id,
             gatoNome = selectedGato!!.nome,
             observacoes = observacoes,
-            dataCadastro = vacina?.dataCadastro ?: System.currentTimeMillis()
+            dataCadastro = vacina?.dataCadastro ?: Timestamp.now()
         )
 
         if (isEditMode) {
@@ -203,13 +205,14 @@ class VacinaDialogFragment : DialogFragment() {
         } else {
             vacinaViewModel.addVacina(vacinaToSave)
         }
+        dismiss()
     }
 
-    private fun formatDate(timestamp: Long): String {
-        return if (timestamp > 0) {
-            dateFormat.format(Date(timestamp))
+    private fun formatDate(timestamp: com.google.firebase.Timestamp?): String {
+        return if (timestamp != null) {
+            dateFormat.format(timestamp.toDate()) // converte para Date e formata
         } else {
-            ""
+            "Não definida"
         }
     }
 
@@ -240,5 +243,12 @@ class VacinaDialogFragment : DialogFragment() {
                 }
             }
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.9).toInt(), // 90% da largura da tela
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 } 

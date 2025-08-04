@@ -54,9 +54,9 @@ class RemediosAdapter(
             }
         }
 
-        private fun formatDate(timestamp: Long): String {
-            return if (timestamp > 0) {
-                dateFormat.format(Date(timestamp))
+        private fun formatDate(timestamp: com.google.firebase.Timestamp?): String {
+            return if (timestamp != null) {
+                dateFormat.format(timestamp.toDate()) // converte para Date e formata
             } else {
                 "Não definida"
             }

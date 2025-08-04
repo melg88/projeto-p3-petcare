@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/spacing_small"
-    app:cardCornerRadius="@dimen/corner_radius"
+    app:cardCornerRadius="@dimen/card_corner_radius"
     app:cardElevation="@dimen/card_elevation">
 
     <LinearLayout
@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.PetCare.TitleMedium"
-                android:textColor="@color/text_primary"
+                android:textColor="@color/primary"
                 tools:text="Vacina V4" />
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xsmall"
                 android:textAppearance="@style/TextAppearance.PetCare.BodyMedium"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/secondary"
                 tools:text="Gato: Miau" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xsmall"
                 android:textAppearance="@style/TextAppearance.PetCare.BodyMedium"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/secondary"
                 tools:text="Data: 15/01/2024" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xsmall"
                 android:textAppearance="@style/TextAppearance.PetCare.BodySmall"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/secondary"
                 tools:text="Próxima: 15/01/2025" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xsmall"
                 android:textAppearance="@style/TextAppearance.PetCare.BodySmall"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/secondary"
                 tools:text="Observações: Aplicada sem reações" />
 
         </LinearLayout>

@@ -6,18 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.petcare.R
 import com.example.petcare.databinding.DialogTutorBinding
 import com.example.petcare.model.Tutor
 import com.example.petcare.viewmodel.TutorViewModel
+import com.google.firebase.Timestamp
 
 class TutorDialogFragment : DialogFragment() {
 
     private var _binding: DialogTutorBinding? = null
     private val binding get() = _binding!!
     
-    private val viewModel: TutorViewModel by viewModels()
+    private val viewModel: TutorViewModel by activityViewModels()
     private var tutor: Tutor? = null
     private var isEditMode = false
 
@@ -52,18 +54,18 @@ class TutorDialogFragment : DialogFragment() {
     }
 
     private fun setupObservers() {
-        viewModel.successMessage.observe(viewLifecycleOwner) { message ->
+        viewModel.success.observe(viewLifecycleOwner) { message ->
             message?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-                viewModel.clearSuccessMessage()
+                viewModel.clearMessages()
                 dismiss()
             }
         }
 
-        viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+        viewModel.error.observe(viewLifecycleOwner) { message ->
             message?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
-                viewModel.clearErrorMessage()
+                viewModel.clearMessages()
             }
         }
     }
@@ -130,7 +132,7 @@ class TutorDialogFragment : DialogFragment() {
             telefone = telefone,
             email = email,
             endereco = endereco,
-            dataCadastro = tutor?.dataCadastro ?: System.currentTimeMillis()
+            dataCadastro = tutor?.dataCadastro ?: Timestamp.now()
         )
 
         if (isEditMode) {
@@ -138,6 +140,8 @@ class TutorDialogFragment : DialogFragment() {
         } else {
             viewModel.addTutor(tutorToSave)
         }
+
+        dismiss()
     }
 
     override fun onDestroyView() {
@@ -155,5 +159,12 @@ class TutorDialogFragment : DialogFragment() {
                 }
             }
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.9).toInt(), // 90% da largura da tela
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 } 

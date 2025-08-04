@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
+    id "kotlin-parcelize"
 }
 
 android {
@@ -64,8 +65,11 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
 
     // ViewModel e LiveData
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.8.4"
+
+    // Fragment KTX (necessário para usar viewModels() em Fragments)
+    implementation "androidx.fragment:fragment-ktx:1.8.3"
 
     // Testes
     testImplementation 'junit:junit:4.13.2'

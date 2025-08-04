@@ -6,15 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcare.databinding.FragmentGatosBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.example.petcare.viewmodel.GatoViewModel
+import com.example.petcare.model.Gato
+
 
 class GatosFragment : Fragment() {
     private var _binding: FragmentGatosBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: GatoViewModel by viewModels()
+    private val viewModel: GatoViewModel by activityViewModels()
     private lateinit var adapter: GatosAdapter
 
     override fun onCreateView(
@@ -31,6 +35,8 @@ class GatosFragment : Fragment() {
         setupRecyclerView()
         setupObservers()
         setupClickListeners()
+
+        viewModel.loadGatos()
     }
 
     private fun setupRecyclerView() {
@@ -82,7 +88,7 @@ class GatosFragment : Fragment() {
 
     private fun showGatoDialog(gato: Gato?) {
         GatoDialogFragment.newInstance(gato).show(
-            childFragmentManager,
+            parentFragmentManager,
             "GatoDialog"
         )
     }
@@ -102,4 +108,4 @@ class GatosFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-} 
+}

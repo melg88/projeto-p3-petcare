@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcare.R
@@ -19,7 +20,7 @@ class RemediosFragment : Fragment() {
     private var _binding: FragmentRemediosBinding? = null
     private val binding get() = _binding!!
     
-    private val viewModel: RemedioViewModel by viewModels()
+    private val viewModel: RemedioViewModel by activityViewModels()
     private lateinit var adapter: RemediosAdapter
 
     override fun onCreateView(
@@ -63,14 +64,14 @@ class RemediosFragment : Fragment() {
             updateEmptyState(remedios.isEmpty())
         }
 
-        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+        viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
-        viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
+        viewModel.error.observe(viewLifecycleOwner) { error ->
             error?.let {
                 Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-                viewModel.clearErrorMessage()
+                viewModel.clearMessages() // ou clearErrorMessage() se tiver
             }
         }
 
@@ -90,7 +91,7 @@ class RemediosFragment : Fragment() {
 
     private fun showRemedioDialog(remedio: Remedio? = null) {
         RemedioDialogFragment.newInstance(remedio)
-            .show(childFragmentManager, "RemedioDialog")
+            .show(parentFragmentManager, "RemedioDialog")
     }
 
     private fun showDeleteConfirmationDialog(remedio: Remedio) {
@@ -98,7 +99,7 @@ class RemediosFragment : Fragment() {
             .setTitle(getString(R.string.delete_remedio))
             .setMessage(getString(R.string.confirm_delete_remedio, remedio.nome))
             .setPositiveButton(getString(R.string.delete)) { _, _ ->
-                viewModel.deleteRemedio(remedio)
+                viewModel.deleteRemedio(remedio.id)
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()

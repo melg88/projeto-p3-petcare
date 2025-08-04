@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcare.R
@@ -19,7 +20,7 @@ class VacinasFragment : Fragment() {
     private var _binding: FragmentVacinasBinding? = null
     private val binding get() = _binding!!
     
-    private val viewModel: VacinaViewModel by viewModels()
+    private val viewModel: VacinaViewModel by activityViewModels()
     private lateinit var adapter: VacinasAdapter
 
     override fun onCreateView(
@@ -63,21 +64,21 @@ class VacinasFragment : Fragment() {
             updateEmptyState(vacinas.isEmpty())
         }
 
-        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+        viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
-        viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
+        viewModel.error.observe(viewLifecycleOwner) { error ->
             error?.let {
                 Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-                viewModel.clearErrorMessage()
+                viewModel.clearMessages()
             }
         }
 
-        viewModel.successMessage.observe(viewLifecycleOwner) { success ->
+        viewModel.success.observe(viewLifecycleOwner) { success ->
             success?.let {
                 Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-                viewModel.clearSuccessMessage()
+                viewModel.clearMessages()
             }
         }
     }
@@ -90,7 +91,7 @@ class VacinasFragment : Fragment() {
 
     private fun showVacinaDialog(vacina: Vacina? = null) {
         VacinaDialogFragment.newInstance(vacina)
-            .show(childFragmentManager, "VacinaDialog")
+            .show(parentFragmentManager, "VacinaDialog")
     }
 
     private fun showDeleteConfirmationDialog(vacina: Vacina) {
@@ -98,7 +99,7 @@ class VacinasFragment : Fragment() {
             .setTitle(getString(R.string.delete_vacina))
             .setMessage(getString(R.string.confirm_delete_vacina, vacina.nome))
             .setPositiveButton(getString(R.string.delete)) { _, _ ->
-                viewModel.deleteVacina(vacina)
+                viewModel.deleteVacina(vacina.id)
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
